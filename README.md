@@ -1,37 +1,102 @@
-## Welcome to GitHub Pages
+# MarkdownX
+MarkdownX is a project to make Markdown have even better features. A `.mdx` file is a `.zip` file renamed with the following files:
 
-You can use the [editor on GitHub](https://github.com/MarkDownX/markdownx.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+- manifest.json (REQUIRED)
+- index.md (at least one md or mdj* file must be present, can be in subfolders)
+- styles.css or theme.json (one is required, but cannot have both)
+- image.png (any image assets needed for the md or mdj files, can be in subfolders)
+- images [
+      - image2.jpg (this image is in a subfolder, not required)
+   ]
+- pages [
+      - text.md (this md file is in a subfolder, not required, images and links are relative to the folder)
+   ]
+* An mdj file is a JSON file that contains machine-readable formatting for Markdown. Easy to generate, but hard for humans to read.
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Extra Markdown Features
+MDX also has a few more features to be more compatible with popular text editors.
 
-### Jekyll Themes
+### Underline, strike and super/subscript
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MarkDownX/markdownx.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Underlined text is wrapped by double underscores:
 
-### Support or Contact
+```
+Underlined __text is wrapped__ by double underscores.
+```
+Striked text is wrapped by double hyphens:
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```
+Striked --text is wrapped-- by double hyphens.
+```
+Superscript is wrapped by `^` characters. Subscript is wrapped by `^^` strings.
+
+```
+
+This text is ^superscript!^ This text is ^^subscript!^^
+```
+
+### Color, font and font size
+Colored text is wrapped with `{#EE8800}` and `{#}`
+
+```
+This text is {#FF0000}red!{#} This text is {#EE8800}orange!{#}
+```
+Highlighted text is wrapped with `{hEE8800}` and `{h}`
+
+```
+This text is highlighted {hFF0000}red!{h} This text is highlighted {hEE8800}orange!{h}
+```
+
+Text with a different font is wrapped with `{)Times New Roman}` and `{)}`
+
+```
+This text is {)Arial}sans-serif{)} This text is {)monospace}monospace!{)}
+```
+
+Text with a different font size is wrapped with `{(12}` and `{(}`
+
+```
+This text is {(50}HUGE{(} This text is {(5}tiny{(}
+```
+
+### Image Formatting
+
+Images with a different size should have the new width (in pixels, in curly brackets) after the URL
+
+```
+![image](https://path.to/image.png{150})
+```
+
+Images with a filter should have the filter (in CSS `filter` form) before the image in curly brackes with a `~` character.
+
+```
+!{~saturate(20) sepia(0.2)}[image](https://path.to/image.png)
+```
+
+### Paragraph Styling
+
+Paragraphs can have indents in front of them in curly brackets with a `>` character:
+
+```
+{>2} This paragraph has two indents!
+{>4} This one has four!
+```
+
+Paragraphs can have alignment info in front of them in curly brackets with a `<` character. Supported values are l(eft), r(ight), c(enter), j(ustify). You can use either the first letter or the full word.
+
+```
+{<c} This paragraph is centered!
+{<right} This paragraph is right-aligned!
+```
+
+Paragraphs can be positioned and sized with square brackets with a `%` sign at the beginning. The measurements are precents of the viewport. Up to four numbers, seperated by commas, in order are top position, left position, width, height.
+
+```
+%[10,10,80,80] This paragraph has a 10% margin on all sides.
+```
+
+## What can I use to view, create and edit MDX files?
+
+Currently, nothing, but we plan to change this in the near future.
