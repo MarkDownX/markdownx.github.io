@@ -15,6 +15,26 @@ MarkdownX is a project to make Markdown have even better features. A `.mdx` file
 * An mdj file is a JSON file that contains machine-readable formatting for Markdown. Easy to generate, but hard for humans to read.
 ```
 
+## Manifest File
+Manifest files are written in JSON and must be in the root. Example manifest:
+
+```JSON
+{
+  "title":"My Document",
+  "author":"kyleplo",// Short string name, no space or punctuation except underscore and hyphen
+  "metadata":{},// Some data that can be provided by the app that is not part of the MDX spec
+  "app":"name of the app this file was edited with, if any",
+  "pages":[// Array of pages. If none, will just use any .md or .mdj file found in alphebetical order by name
+    {
+      "title":"Page 1",
+      "path":"",// If not provided, title plus ".md" will be used
+      "id":"",// Optional page id provided by the app
+      "metadata": {}// Optional page metadata provided by the app
+    },
+    "page2"// This will look for a file named "page2.md"
+  ]
+}
+```
 ## Extra Markdown Features
 MDX also has a few more features to be more compatible with popular text editors.
 
