@@ -45,7 +45,7 @@ Underlined text is wrapped by double underscores:
 ```
 Underlined __text is wrapped__ by double underscores.
 ```
-Striked text is wrapped by double hyphens:
+Striked text is wrapped by double hyphens or `~` characters:
 
 ```
 Striked --text is wrapped-- by double hyphens.
@@ -72,7 +72,7 @@ This text is highlighted {hFF0000}red!{h} This text is highlighted {hEE8800}oran
 Text with a different font is wrapped with `{)Times New Roman}` and `{)}`
 
 ```
-This text is {)Arial}sans-serif{)} This text is {)monospace}monospace!{)}
+This text is {)Arial,sans-serif{)} This text is {)monospace}monospace!{)}
 ```
 
 Text with a different font size is wrapped with `{(12}` and `{(}`
